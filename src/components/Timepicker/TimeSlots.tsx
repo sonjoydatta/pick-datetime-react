@@ -1,17 +1,18 @@
 import { FC, useEffect, useRef } from 'react';
-import { getSlots, timeIsEqual } from '../../helpers/time';
+import { getSlots, sortSlots, timeIsEqual } from '../../helpers/time';
 import { SlotButton, TimeContainer } from './styles';
 
 export type TimeSlotsProps = {
   selectedTime: string;
   slotGap?: number;
   rightAlign?: boolean;
-  onTimeClick: (time: string) => void;
+  startFrom?: string;
+  onChange: (time: string) => void;
 };
 
 export const TimeSlots: FC<TimeSlotsProps> = (props) => {
-  const { selectedTime, slotGap, onTimeClick, ...rest } = props;
-  const timeSlots = getSlots(slotGap);
+  const { selectedTime, slotGap, startFrom, onChange, ...rest } = props;
+  const timeSlots = startFrom ? sortSlots(startFrom, slotGap) : getSlots(slotGap);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ export const TimeSlots: FC<TimeSlotsProps> = (props) => {
   return (
     <TimeContainer ref={containerRef} {...rest}>
       {timeSlots.map((time, i) => (
-        <SlotButton key={i} size="sm" isSelected={timeIsEqual(selectedTime, time)} onClick={() => onTimeClick(time)}>
+        <SlotButton key={i} size="sm" isSelected={timeIsEqual(selectedTime, time)} onClick={() => onChange(time)}>
           {time}
         </SlotButton>
       ))}

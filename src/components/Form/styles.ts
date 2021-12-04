@@ -110,6 +110,5 @@ export const FormCheck = styled.input<FormCheckProps>`
 
 export const FormMessage = styled(Text)<FormMessageProps>`
   margin: 0 5px;
-  font-size: 12px;
-  color: ${({ theme, variant = 'danger' }) => theme.colors[variant]};
+  color: ${({ variant = 'danger' }) => theme.colors[variant]};
 `;

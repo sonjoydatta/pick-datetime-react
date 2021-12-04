@@ -7,10 +7,10 @@ import { useDateContext } from './useDateContext';
 
 type PickerWithInputProps = {
   onChange?: (value: Date) => void;
-} & Omit<FormItemProps, 'value' | 'type' | 'readOnly' | 'onChange' | 'onFocus'>;
+} & Omit<FormItemProps, 'value' | 'type' | 'messageType' | 'readOnly' | 'onChange' | 'onFocus'>;
 
 export const PickerWithInput: FC<PickerWithInputProps> = (props) => {
-  const { label, srOnly, onChange, ...rest } = props;
+  const { label, srOnly, message, onChange, ...rest } = props;
   const { selectedDate, isCalendarOpen, setIsCalendarOpen } = useDateContext();
   const ref = useRef<HTMLDivElement>(null);
   useOnClickOutside(ref, () => setIsCalendarOpen(false));
@@ -27,10 +27,12 @@ export const PickerWithInput: FC<PickerWithInputProps> = (props) => {
       <Form.Input
         type="text"
         readOnly
+        messageType={message?.value ? message?.variant || 'danger' : undefined}
         value={selectedDate.toDateString()}
         onFocus={() => setIsCalendarOpen(true)}
         {...rest}
       />
+      {message && <Form.Message variant={message.variant}>{message.value}</Form.Message>}
       {isCalendarOpen && <Calendar />}
     </Form.Group>
   );

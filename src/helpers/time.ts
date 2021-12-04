@@ -32,18 +32,21 @@ export const getSlots = (gap = 15) => {
   return slots;
 };
 
-export const findNearestSlot = (gap = 15) => {
-  const time = new Date();
-  const hours = time.getHours();
-  const minutes = time.getMinutes();
+export const findNearestSlot = (hours: number, minutes: number, gap = 15) => {
   for (let i = 0; i < 60; i += gap) {
     if (i > minutes) {
       return convertTo12Hours(`${hours}:${i}`);
     }
   }
-  return convertTo12Hours(`${gap === 60 ? hours + 1 : hours}:00`);
+  return convertTo12Hours(`${hours + 1}:00`);
 };
 
 export const timeIsEqual = (time1: string, time2: string) => {
   return time1.replace(/ /, '').toLowerCase() === time2.replace(/ /, '').toLowerCase();
+};
+
+export const sortSlots = (slotStartFrom: string, slotGap = 15) => {
+  const timeSlots = getSlots(slotGap);
+  const startIndex = timeSlots.indexOf(slotStartFrom);
+  return timeSlots.slice(startIndex).concat(timeSlots.slice(0, startIndex));
 };

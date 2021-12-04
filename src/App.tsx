@@ -7,12 +7,20 @@ function App() {
       <div style={{ margin: '0 auto', width: '300px' }}>
         <Datepicker
           label="Booking date"
+          name="bookingDate"
           placeholder="Choose a date"
           minDate={new Date()}
           maxDate={new Date(2022, 1, 26)}
           weekEnds={['Sun', 'Sat']}
         />
-        <Timepicker label="Booking time" placeholder="Choose a time" rightAlign slotGap={20} format="24" />
+        <Timepicker
+          label="Booking time"
+          name="bookingTime"
+          placeholder="Choose a time"
+          rightAlign
+          slotGap={20}
+          format="24"
+        />
       </div>
     </div>
   );

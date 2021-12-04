@@ -7,7 +7,7 @@ export const theme = {
     secondary: '#F4F7FA',
     white: '#ffffff',
     black: '#000000',
-    danger: '#D87675',
+    danger: '#DC3545',
     success: '#28a745',
   },
 };
