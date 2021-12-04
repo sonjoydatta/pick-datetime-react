@@ -41,7 +41,7 @@ export const findNearestSlot = (gap = 15) => {
       return convertTo12Hours(`${hours}:${i}`);
     }
   }
-  return convertTo12Hours(`${hours}:00`);
+  return convertTo12Hours(`${gap === 60 ? hours + 1 : hours}:00`);
 };
 
 export const timeIsEqual = (time1: string, time2: string) => {

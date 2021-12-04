@@ -65,3 +65,14 @@ export const dateIsLessThan = (date1: Date, date2: Date) => {
     date1.getFullYear() < date2.getFullYear()
   );
 };
+
+export const checkMonthHasDay = (month: number, year: number, day: number) => {
+  const monthDays = daysOfMonth(month, year);
+  let date = monthDays[monthDays.length - 1]!;
+  monthDays.forEach((monthDay) => {
+    if (monthDay && getDay(monthDay) === day) {
+      date = monthDay;
+    }
+  });
+  return date;
+};

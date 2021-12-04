@@ -3,7 +3,6 @@ import { FC, useEffect, useRef } from 'react';
 import { Form } from '../Form';
 import { FormItemProps } from '../Form/types';
 import { Calendar } from './Calendar';
-import { CalendarWrapper } from './styles';
 import { useDateContext } from './useDateContext';
 
 type PickerWithInputProps = {
@@ -23,7 +22,7 @@ export const PickerWithInput: FC<PickerWithInputProps> = (props) => {
   }, [onChange, selectedDate]);
 
   return (
-    <Form.Group ref={ref}>
+    <Form.Group ref={ref} style={{ position: 'relative' }}>
       <Form.Label srOnly={srOnly}>{label}</Form.Label>
       <Form.Input
         type="text"
@@ -32,7 +31,7 @@ export const PickerWithInput: FC<PickerWithInputProps> = (props) => {
         onFocus={() => setIsCalendarOpen(true)}
         {...rest}
       />
-      <CalendarWrapper>{isCalendarOpen && <Calendar />}</CalendarWrapper>
+      {isCalendarOpen && <Calendar />}
     </Form.Group>
   );
 };

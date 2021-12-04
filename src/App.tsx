@@ -1,19 +1,19 @@
+import { Datepicker } from './components/Datepicker';
+import { Timepicker } from './components/Timepicker';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{ margin: '0 auto', width: '300px' }}>
+        <Datepicker
+          label="Booking date"
+          placeholder="Choose a date"
+          minDate={new Date()}
+          maxDate={new Date(2022, 1, 26)}
+          weekEnds={['Sun', 'Sat']}
+        />
+        <Timepicker label="Booking time" placeholder="Choose a time" rightAlign slotGap={20} format="24" />
+      </div>
     </div>
   );
 }

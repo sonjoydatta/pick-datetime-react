@@ -1,5 +1,6 @@
 import { FC, HTMLAttributes } from 'react';
 import styled from 'styled-components';
+import { theme } from '../theme';
 
 export type HeadingProps = {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -11,7 +12,6 @@ export type HeadingProps = {
 export const Heading: FC<HeadingProps> = ({ children, ...rest }) => <StyledHeading {...rest}>{children}</StyledHeading>;
 
 const StyledHeading = styled.h1<HeadingProps>`
-  font-family: ${({ theme }) => theme.fontFamailyBase};
   font-size: ${({ as }) => {
     switch (as) {
       case 'h1':
@@ -30,7 +30,7 @@ const StyledHeading = styled.h1<HeadingProps>`
         return '40px';
     }
   }};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${theme.colors.text};
   font-weight: ${({ weight = '700' }) => weight};
   text-align: ${({ textAlign = 'left' }) => textAlign};
   text-transform: ${({ textTransform = 'none' }) => textTransform};

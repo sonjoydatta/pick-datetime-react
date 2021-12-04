@@ -2,14 +2,15 @@ import { FC, useEffect, useRef } from 'react';
 import { getSlots, timeIsEqual } from '../../helpers/time';
 import { SlotButton, TimeContainer } from './styles';
 
-type TimeSlotsProps = {
+export type TimeSlotsProps = {
   selectedTime: string;
   slotGap?: number;
+  rightAlign?: boolean;
   onTimeClick: (time: string) => void;
 };
 
 export const TimeSlots: FC<TimeSlotsProps> = (props) => {
-  const { selectedTime, slotGap, onTimeClick } = props;
+  const { selectedTime, slotGap, onTimeClick, ...rest } = props;
   const timeSlots = getSlots(slotGap);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -20,7 +21,7 @@ export const TimeSlots: FC<TimeSlotsProps> = (props) => {
         const element = node as HTMLButtonElement;
         if (timeIsEqual(element.innerText, selectedTime)) {
           const scrollTo = element.offsetTop - container.offsetTop;
-          container.scrollTo({ top: scrollTo });
+          container.scrollTop = scrollTo;
         }
       });
     }
@@ -28,7 +29,7 @@ export const TimeSlots: FC<TimeSlotsProps> = (props) => {
   }, [containerRef]);
 
   return (
-    <TimeContainer ref={containerRef}>
+    <TimeContainer ref={containerRef} {...rest}>
       {timeSlots.map((time, i) => (
         <SlotButton key={i} size="sm" isSelected={timeIsEqual(selectedTime, time)} onClick={() => onTimeClick(time)}>
           {time}

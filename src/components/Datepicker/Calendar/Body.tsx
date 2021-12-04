@@ -8,15 +8,15 @@ export const Body = () => {
   const year = getYear(selectedDate);
 
   const isDisabledFrom = (date: Date) => {
-    if (minDate && getYear(minDate) === getYear(date)) {
-      return getMonth(minDate) > getMonth(date) || getDay(minDate) > getDay(date);
+    if (minDate && getYear(minDate) === getYear(date) && getMonth(minDate) === getMonth(date)) {
+      return getDay(minDate) > getDay(date);
     }
     return false;
   };
 
   const isDisabledTo = (date: Date) => {
-    if (maxDate && getYear(maxDate) === getYear(date)) {
-      return getMonth(maxDate) < getMonth(date) || getDay(maxDate) < getDay(date);
+    if (maxDate && getYear(maxDate) === getYear(date) && getMonth(maxDate) === getMonth(date)) {
+      return getDay(maxDate) < getDay(date);
     }
     return false;
   };

@@ -15,7 +15,7 @@ export const Header = () => {
 
   const isNextNavigate = () => {
     if (maxDate && getYear(maxDate) === getYear(selectedDate)) {
-      return getMonth(maxDate) < getMonth(selectedDate);
+      return getMonth(maxDate) > getMonth(selectedDate);
     }
     return true;
   };

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, Dispatch, FC, SetStateAction, useContext, useState } from 'react';
-import { dateIsLessThan } from '../../helpers/date';
+import { checkMonthHasDay, dateIsLessThan } from '../../helpers/date';
 
 export type WeekDays = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
 type Props = {
@@ -53,9 +53,14 @@ export const DateProvider: FC<ProviderProps> = (props) => {
   };
 
   const getNewDate = (date: Date) => {
-    const newDate = new Date(date);
-    if (maxDate && dateIsLessThan(newDate, maxDate)) {
-      return new Date(maxDate).getDate();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    const newDate = checkMonthHasDay(month + 1, year, day);
+    if (maxDate && newDate.getMonth() === maxDate.getMonth() && newDate.getFullYear() === maxDate.getFullYear()) {
+      if (newDate.getDate() > maxDate.getDate()) {
+        return maxDate.getDate();
+      }
     }
     return newDate.getDate();
   };

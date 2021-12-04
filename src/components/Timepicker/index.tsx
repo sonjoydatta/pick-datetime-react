@@ -3,19 +3,17 @@ import { FC, useRef, useState } from 'react';
 import { Form } from '../Form';
 import { FormItemProps } from '../Form/types';
 import { convertTo12Hours, convertTo24Hours, findNearestSlot } from '../../helpers/time';
-import { TimeWrapper } from './styles';
-import { TimeSlots } from './TimeSlots';
+import { TimeSlots, TimeSlotsProps } from './TimeSlots';
 
 export type TimepickerProps = {
   value?: string;
   format?: '12' | '24';
-  slotGap?: number;
-  rightAlign?: boolean;
   onChange?: (value: string) => void;
-} & Omit<FormItemProps, 'value' | 'type' | 'readOnly' | 'onChange' | 'onFocus'>;
+} & Pick<TimeSlotsProps, 'slotGap' | 'rightAlign'> &
+  Omit<FormItemProps, 'value' | 'type' | 'readOnly' | 'onChange' | 'onFocus'>;
 
 export const Timepicker: FC<TimepickerProps> = (props) => {
-  const { srOnly, label, rightAlign, value, format, slotGap, onChange, ...rest } = props;
+  const { srOnly, label, value, format, slotGap, onChange, ...rest } = props;
   const defaultValue = value ? (format === '24' ? convertTo12Hours(value) : value) : findNearestSlot(slotGap);
   const [selectedTime, setSelectedTime] = useState(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
@@ -30,12 +28,10 @@ export const Timepicker: FC<TimepickerProps> = (props) => {
   };
 
   return (
-    <Form.Group ref={ref}>
+    <Form.Group ref={ref} style={{ position: 'relative' }}>
       <Form.Label srOnly={srOnly}>{label}</Form.Label>
       <Form.Input type="text" readOnly value={selectedTime} onFocus={() => setIsOpen(true)} {...rest} />
-      <TimeWrapper isRight={rightAlign}>
-        {isOpen && <TimeSlots {...slotProps} onTimeClick={handleTimeChange} />}
-      </TimeWrapper>
+      {isOpen && <TimeSlots {...slotProps} onTimeClick={handleTimeChange} />}
     </Form.Group>
   );
 };

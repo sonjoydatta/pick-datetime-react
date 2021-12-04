@@ -1,6 +1,7 @@
 import { hexToRGB } from '../../helpers';
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
+import { theme } from '../theme';
 
 type SlotButtonProps = {
   isSelected?: boolean;
@@ -8,37 +9,29 @@ type SlotButtonProps = {
   isWeekend?: boolean;
 };
 
-export const TimeContainer = styled.div`
+export const TimeContainer = styled.div<{ rightAlign?: boolean }>`
   position: absolute;
-  top: 10px;
+  top: calc(100% + 10px);
+  ${({ rightAlign }) => {
+    if (rightAlign) {
+      return css`
+        right: 0;
+      `;
+    }
+    return css`
+      left: 0;
+    `;
+  }};
   display: flex;
   flex-direction: column;
-  width: 188px;
+  width: 100%;
+  min-width: 188px;
   max-height: 200px;
   overflow-y: scroll;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: ${theme.borderRadius};
+  background-color: ${theme.colors.white};
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-`;
-
-export const TimeWrapper = styled.div<{ isRight?: boolean }>`
-  position: relative;
-
-  ${TimeContainer} {
-    ${({ isRight }) => {
-      if (isRight) {
-        return css`
-          right: 0;
-          left: auto;
-        `;
-      }
-
-      return css`
-        left: 0;
-        right: auto;
-      `;
-    }}
-  }
+  z-index: 1;
 `;
 
 export const SlotButton = styled(Button)<SlotButtonProps>`
@@ -46,15 +39,14 @@ export const SlotButton = styled(Button)<SlotButtonProps>`
   padding: 0 15px;
   line-height: 40px;
   text-align: left;
-  color: ${({ theme, isSelected }) => (isSelected ? theme.colors.white : theme.colors.text)};
+  color: ${({ isSelected }) => (isSelected ? theme.colors.white : theme.colors.text)};
   border-radius: 0;
   border-color: transparent;
-  background-color: ${({ theme, isSelected }) => (isSelected ? theme.colors.primary : 'transparent')};
+  background-color: ${({ isSelected }) => (isSelected ? theme.colors.primary : 'transparent')};
 
   &:hover,
   &:focus {
     border-color: transparent;
-    background-color: ${({ theme, isSelected }) =>
-      isSelected ? theme.colors.primary : hexToRGB(theme.colors.primary, 0.1)};
+    background-color: ${({ isSelected }) => (isSelected ? theme.colors.primary : hexToRGB(theme.colors.primary, 0.1))};
   }
 `;
