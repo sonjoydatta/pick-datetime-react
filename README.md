@@ -1,6 +1,10 @@
 # pick-datetime-react
 
-A simple and reusable datepicker and timepicker component for React.
+A simple and reusable date-time picker component for React.
+
+[![version][version-badge]][package]
+[![MIT License][license-badge]][license]
+[![🚀 Publish][workflow-badge]][workflow]
 
 ## Installation
 
@@ -33,6 +37,8 @@ For datepicker:
 />
 ```
 
+![][datepicker-image]
+
 For timepicker:
 
 ```jsx
@@ -51,6 +57,8 @@ const now = new Date();
 />;
 ```
 
+![][timepicker-image]
+
 ## License
 
 Licensed under MIT license, see [LICENSE][license] for the full license.
@@ -58,6 +66,10 @@ Licensed under MIT license, see [LICENSE][license] for the full license.
 [npm]: https://www.npmjs.com
 [node]: https://nodejs.org
 [package]: https://www.npmjs.com/package/pick-datetime-react
-[version-badge]: https://img.shields.io/npm/v/pick-datetime-react?style=flat-square
-[license-badge]: https://img.shields.io/npm/l/pick-datetime-react?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/pick-datetime-react
+[license-badge]: https://img.shields.io/npm/l/pick-datetime-react
 [license]: https://github.com/sonjoydatta/pick-datetime-react/blob/main/LICENSE
+[workflow-badge]: https://github.com/sonjoydatta/pick-datetime-react/actions/workflows/publish.yml/badge.svg
+[workflow]: https://github.com/sonjoydatta/pick-datetime-react/actions/workflows/publish.yml
+[datepicker-image]: https://i.ibb.co/jGrXZSV/datepicker.png
+[timepicker-image]: https://i.ibb.co/Vt5L1HC/timepicker.png
