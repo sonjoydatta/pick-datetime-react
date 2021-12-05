@@ -1,10 +1,10 @@
 {
-	"name": "datetime-picker-react",
+	"name": "pick-datetime-react",
 	"version": "1.0.0",
 	"description": "Datetime picker for React",
 	"author": "Sonjoy Datta <sonjoy.dat@gmail.com>",
 	"license": "MIT",
-	"repository": "sonjoydatta/datetime-picker-react",
+	"repository": "sonjoydatta/pick-datetime-react",
 	"main": "dist/index.js",
 	"types": "./dist/index.d.ts",
 	"engines": {
@@ -44,7 +44,6 @@
 		"time",
 		"datetimepicker",
 		"datetime-picker",
-		"datetime-picker-react",
-		"datetime-picker-reactjs"
+		"datetime-picker-react"
 	]
 }

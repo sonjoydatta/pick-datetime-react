@@ -1,4 +1,4 @@
-# datetime-picker-react
+# pick-datetime-react
 
 A simple and reusable datepicker and timepicker component for React.
 
@@ -7,13 +7,13 @@ A simple and reusable datepicker and timepicker component for React.
 Install via NPM:
 
 ```
-npm install datetime-picker-react --save
+npm install pick-datetime-react --save
 ```
 
 or by using Yarn:
 
 ```
-yarn add datetime-picker-react
+yarn add pick-datetime-react
 ```
 
 ## Examples
@@ -57,7 +57,7 @@ Licensed under MIT license, see [LICENSE][license] for the full license.
 
 [npm]: https://www.npmjs.com
 [node]: https://nodejs.org
-[package]: https://www.npmjs.com/package/datetime-picker-react
-[version-badge]: https://img.shields.io/npm/v/datetime-picker-react?style=flat-square
-[license-badge]: https://img.shields.io/npm/l/datetime-picker-react?style=flat-square
-[license]: https://github.com/sonjoydatta/datetime-picker-react/blob/main/LICENSE
+[package]: https://www.npmjs.com/package/pick-datetime-react
+[version-badge]: https://img.shields.io/npm/v/pick-datetime-react?style=flat-square
+[license-badge]: https://img.shields.io/npm/l/pick-datetime-react?style=flat-square
+[license]: https://github.com/sonjoydatta/pick-datetime-react/blob/main/LICENSE
