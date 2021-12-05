@@ -6,11 +6,15 @@ A simple and reusable datepicker and timepicker component for React.
 
 Install via NPM:
 
-`npm install datetime-picker-react --save`
+```
+npm install datetime-picker-react --save
+```
 
 or by using Yarn:
 
-`yarn add datetime-picker-react`
+```
+yarn add datetime-picker-react
+```
 
 ## Examples
 
