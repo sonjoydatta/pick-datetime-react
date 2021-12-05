@@ -9,14 +9,14 @@ export type ButtonProps = {
 
 export const Button = styled.button<ButtonProps>`
   display: inline-block;
-  color: #ffffff;
+  color: ${theme.colors.white};
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
   outline: none;
   user-select: none;
-  background-color: #1890ff;
+  background-color: ${theme.colors.primary};
   border: 1px solid ${theme.colors.primary};
   padding: ${({ size }) => (size === 'sm' ? '4px 24px' : '10px 48px')};
   font-size: ${({ size }) => (size === 'sm' ? theme.fontSizeBase : '18px')};
