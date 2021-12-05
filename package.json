@@ -1,6 +1,6 @@
 {
 	"name": "pick-datetime-react",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Datetime picker for React",
 	"author": "Sonjoy Datta <sonjoy.dat@gmail.com>",
 	"license": "MIT",

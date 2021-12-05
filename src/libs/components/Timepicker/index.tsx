@@ -9,7 +9,7 @@ export type TimepickerProps = {
   value?: string;
   format?: '12' | '24';
 } & Partial<Omit<TimeSlotsProps, 'selectedTime'>> &
-  Omit<FormItemProps, 'value' | 'type' | 'readOnly' | 'messageType' | 'onChange' | 'onFocus'>;
+  Omit<FormItemProps, 'value' | 'type' | 'className' | 'readOnly' | 'messageType' | 'onChange' | 'onFocus'>;
 
 export const Timepicker: FC<TimepickerProps> = (props) => {
   const { srOnly, label, message, value, format, slotGap, rightAlign, startFrom, onChange, ...rest } = props;
@@ -58,17 +58,24 @@ export const Timepicker: FC<TimepickerProps> = (props) => {
   };
 
   return (
-    <Form.Group ref={ref} style={{ position: 'relative' }}>
-      <Form.Label srOnly={srOnly}>{label}</Form.Label>
+    <Form.Group ref={ref} className="timepicker" style={{ position: 'relative' }}>
+      <Form.Label srOnly={srOnly} className="timepicker-label">
+        {label}
+      </Form.Label>
       <Form.Input
         type="text"
         readOnly
+        className="timepicker-input"
         messageType={message?.value ? message?.variant || 'danger' : undefined}
         value={selectedTime}
         onFocus={() => setIsOpen(true)}
         {...rest}
       />
-      {message && <Form.Message variant={message.variant}>{message.value}</Form.Message>}
+      {message && (
+        <Form.Message variant={message.variant} className="timepicker-message">
+          {message.value}
+        </Form.Message>
+      )}
       {isOpen && <TimeSlots {...slotProps} />}
     </Form.Group>
   );

@@ -7,7 +7,7 @@ import { useDateContext } from './useDateContext';
 
 type PickerWithInputProps = {
   onChange?: (value: Date) => void;
-} & Omit<FormItemProps, 'value' | 'type' | 'messageType' | 'readOnly' | 'onChange' | 'onFocus'>;
+} & Omit<FormItemProps, 'value' | 'type' | 'className' | 'messageType' | 'readOnly' | 'onChange' | 'onFocus'>;
 
 export const PickerWithInput: FC<PickerWithInputProps> = (props) => {
   const { label, srOnly, message, onChange, ...rest } = props;
@@ -22,17 +22,24 @@ export const PickerWithInput: FC<PickerWithInputProps> = (props) => {
   }, [onChange, selectedDate]);
 
   return (
-    <Form.Group ref={ref} style={{ position: 'relative' }}>
-      <Form.Label srOnly={srOnly}>{label}</Form.Label>
+    <Form.Group ref={ref} className="datepicker" style={{ position: 'relative' }}>
+      <Form.Label srOnly={srOnly} className="datepicker-label">
+        {label}
+      </Form.Label>
       <Form.Input
         type="text"
         readOnly
+        className="datepicker-input"
         messageType={message?.value ? message?.variant || 'danger' : undefined}
         value={selectedDate.toDateString()}
         onFocus={() => setIsCalendarOpen(true)}
         {...rest}
       />
-      {message && <Form.Message variant={message.variant}>{message.value}</Form.Message>}
+      {message && (
+        <Form.Message variant={message.variant} className="datepicker-message">
+          {message.value}
+        </Form.Message>
+      )}
       {isCalendarOpen && <Calendar />}
     </Form.Group>
   );

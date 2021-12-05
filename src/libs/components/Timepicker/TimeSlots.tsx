@@ -30,7 +30,7 @@ export const TimeSlots: FC<TimeSlotsProps> = (props) => {
   }, [containerRef]);
 
   return (
-    <TimeContainer ref={containerRef} {...rest}>
+    <TimeContainer ref={containerRef} className="timepicker-slots" {...rest}>
       {timeSlots.map((time, i) => (
         <SlotButton key={i} size="sm" isSelected={timeIsEqual(selectedTime, time)} onClick={() => onChange(time)}>
           {time}

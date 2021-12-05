@@ -4,7 +4,7 @@ import { Body } from './Body';
 import { Header } from './Header';
 
 export const Calendar = () => (
-  <CalendarContainer>
+  <CalendarContainer className="datepicker-calendar">
     <Header />
     <Body />
   </CalendarContainer>
