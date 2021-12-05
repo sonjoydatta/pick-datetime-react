@@ -36,11 +36,15 @@
 		"dist"
 	],
 	"keywords": [
-		"react",
-		"typescript",
-		"npm",
-		"access-control",
-		"user-permission",
-		"authorization"
+		"datepicker",
+		"timepicker",
+		"calendar",
+		"datetime",
+		"date",
+		"time",
+		"datetimepicker",
+		"datetime-picker",
+		"datetime-picker-react",
+		"datetime-picker-reactjs"
 	]
 }
