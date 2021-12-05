@@ -1,7 +1,6 @@
 import React from 'react';
-import { IconArrowLeft, IconArrowRight, SolidSVG } from '../../SolidSVG';
 import { getMonth, getMonthName, getYear } from '../../../helpers/date';
-import { CalendarHeader, HeaderTitle, NavidateBtn } from '../styles';
+import { IconArrowLeft, IconArrowRight, SolidSVG } from '../../SolidSVG';
 import { useDateContext } from '../useDateContext';
 
 export const Header = () => {
@@ -22,18 +21,18 @@ export const Header = () => {
   };
 
   return (
-    <CalendarHeader>
-      <HeaderTitle>
+    <div className="calendar-header">
+      <p className="calendar-header__title">
         {getMonthName(selectedDate)} {getYear(selectedDate)}
-      </HeaderTitle>
-      <div>
-        <NavidateBtn onClick={handlePrevMonth} disabled={!isPrevNavigate()}>
+      </p>
+      <div className="calendar-header__navigate">
+        <button className="calendar-header__navigate-btn" onClick={handlePrevMonth} disabled={!isPrevNavigate()}>
           <SolidSVG width={12} height={12} path={IconArrowLeft} />
-        </NavidateBtn>
-        <NavidateBtn onClick={handleNextMonth} disabled={!isNextNavigate()}>
+        </button>
+        <button className="calendar-header__navigate-btn" onClick={handleNextMonth} disabled={!isNextNavigate()}>
           <SolidSVG width={12} height={12} path={IconArrowRight} />
-        </NavidateBtn>
+        </button>
       </div>
-    </CalendarHeader>
+    </div>
   );
 };

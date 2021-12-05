@@ -1,8 +1,9 @@
-import { useOnClickOutside } from '../../hooks';
 import React, { FC, useRef, useState } from 'react';
-import { Form } from '../Form';
-import { FormItemProps } from '../Form/types';
 import { convertTo12Hours, convertTo24Hours, findNearestSlot } from '../../helpers/time';
+import { useOnClickOutside } from '../../hooks';
+import '../styles/form.css';
+import '../styles/timepicker.css';
+import { FormItemProps } from '../types';
 import { TimeSlots, TimeSlotsProps } from './TimeSlots';
 
 export type TimepickerProps = {
@@ -58,25 +59,20 @@ export const Timepicker: FC<TimepickerProps> = (props) => {
   };
 
   return (
-    <Form.Group ref={ref} className="timepicker" style={{ position: 'relative' }}>
-      <Form.Label srOnly={srOnly} className="timepicker-label">
+    <div ref={ref} className="timepicker form-group">
+      <label className={`form-group__label${srOnly ? ' sr-only' : ''}`} htmlFor={rest.name || ''}>
         {label}
-      </Form.Label>
-      <Form.Input
-        type="text"
+      </label>
+      <input
         readOnly
-        className="timepicker-input"
-        messageType={message?.value ? message?.variant || 'danger' : undefined}
+        type="text"
+        className={`form-group__input ${message?.value ? message?.variant || 'danger' : ''}`}
         value={selectedTime}
         onFocus={() => setIsOpen(true)}
         {...rest}
       />
-      {message && (
-        <Form.Message variant={message.variant} className="timepicker-message">
-          {message.value}
-        </Form.Message>
-      )}
+      {message?.value && <p className={`form-group__message ${message?.variant || 'danger'}`}>{message?.value}</p>}
       {isOpen && <TimeSlots {...slotProps} />}
-    </Form.Group>
+    </div>
   );
 };

@@ -1,7 +1,6 @@
-import { useOnClickOutside } from '../../hooks';
 import React, { FC, useEffect, useRef } from 'react';
-import { Form } from '../Form';
-import { FormItemProps } from '../Form/types';
+import { useOnClickOutside } from '../../hooks';
+import { FormItemProps } from '../types';
 import { Calendar } from './Calendar';
 import { useDateContext } from './useDateContext';
 
@@ -22,25 +21,20 @@ export const PickerWithInput: FC<PickerWithInputProps> = (props) => {
   }, [onChange, selectedDate]);
 
   return (
-    <Form.Group ref={ref} className="datepicker" style={{ position: 'relative' }}>
-      <Form.Label srOnly={srOnly} className="datepicker-label">
+    <div ref={ref} className="datepicker form-group">
+      <label className={`form-group__label${srOnly ? ' sr-only' : ''}`} htmlFor={rest.name || ''}>
         {label}
-      </Form.Label>
-      <Form.Input
-        type="text"
+      </label>
+      <input
         readOnly
-        className="datepicker-input"
-        messageType={message?.value ? message?.variant || 'danger' : undefined}
+        type="text"
+        className={`form-group__input ${message?.value ? message?.variant || 'danger' : ''}`}
         value={selectedDate.toDateString()}
         onFocus={() => setIsCalendarOpen(true)}
         {...rest}
       />
-      {message && (
-        <Form.Message variant={message.variant} className="datepicker-message">
-          {message.value}
-        </Form.Message>
-      )}
+      {message?.value && <p className={`form-group__message ${message?.variant || 'danger'}`}>{message?.value}</p>}
       {isCalendarOpen && <Calendar />}
-    </Form.Group>
+    </div>
   );
 };

@@ -1,0 +1,58 @@
+.form-group {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.form-group__label {
+  margin-bottom: 4px;
+  display: inline-block;
+}
+.form-group__label.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.form-group__input {
+  display: block;
+  width: 100%;
+  padding: 11px 16px;
+  background-color: #f4f7fa;
+  border: 1px solid #f4f7fa;
+  appearance: none;
+  border-radius: 10px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-group__input.danger,
+.form-group__input.danger:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+.form-group__input.success,
+.form-group__input.success:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.25);
+}
+.form-group__input:placeholder-shown {
+  text-overflow: ellipsis;
+  color: #707070;
+}
+.form-group__input:focus {
+  outline: 0;
+  background-color: rgba(24, 144, 255, 0.08);
+  border-color: rgba(24, 144, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.25);
+}
+.form-group__message {
+  margin: 0;
+}
+.form-group__message.danger {
+  color: #dc3545;
+}
+.form-group__message.success {
+  color: #28a745;
+}

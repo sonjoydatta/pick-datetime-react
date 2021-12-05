@@ -1,6 +1,5 @@
 import React from 'react';
 import { dateIsEqual, getDay, getMonth, getWeekDayName, getYear, weeksOfMonth } from '../../../helpers/date';
-import { CalendarBody, DayButton, Table } from '../styles';
 import { useDateContext, WeekDays } from '../useDateContext';
 
 export const Body = () => {
@@ -23,8 +22,8 @@ export const Body = () => {
   };
 
   return (
-    <CalendarBody>
-      <Table>
+    <div className="calendar-body">
+      <table className="calendar-body__table">
         <thead>
           <tr>
             {weeksOfMonth(month, year)?.[2].map(
@@ -43,23 +42,23 @@ export const Body = () => {
               {week.map((day, j) => (
                 <td key={j}>
                   {day && (
-                    <DayButton
-                      size="sm"
-                      isToday={dateIsEqual(day, today)}
-                      isSelected={dateIsEqual(day, selectedDate)}
-                      isWeekend={weekEnds?.includes(getWeekDayName(day) as WeekDays)}
+                    <button
+                      className={`${dateIsEqual(day, today) ? 'today' : ''} ${
+                        dateIsEqual(day, selectedDate) ? 'selected' : ''
+                      } ${weekEnds?.includes(getWeekDayName(day) as WeekDays) ? 'weekend' : ''}`}
+                      // size="sm"
                       onClick={() => handleDateChange(day)}
                       disabled={isDisabledFrom(day) || isDisabledTo(day)}
                     >
                       {getDay(day)}
-                    </DayButton>
+                    </button>
                   )}
                 </td>
               ))}
             </tr>
           ))}
         </tbody>
-      </Table>
-    </CalendarBody>
+      </table>
+    </div>
   );
 };

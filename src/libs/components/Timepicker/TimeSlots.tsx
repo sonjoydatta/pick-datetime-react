@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useRef } from 'react';
 import { getSlots, sortSlots, timeIsEqual } from '../../helpers/time';
-import { SlotButton, TimeContainer } from './styles';
 
 export type TimeSlotsProps = {
   selectedTime: string;
@@ -11,7 +10,7 @@ export type TimeSlotsProps = {
 };
 
 export const TimeSlots: FC<TimeSlotsProps> = (props) => {
-  const { selectedTime, slotGap, startFrom, onChange, ...rest } = props;
+  const { selectedTime, slotGap, startFrom, rightAlign, onChange } = props;
   const timeSlots = startFrom ? sortSlots(startFrom, slotGap) : getSlots(slotGap);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -30,12 +29,16 @@ export const TimeSlots: FC<TimeSlotsProps> = (props) => {
   }, [containerRef]);
 
   return (
-    <TimeContainer ref={containerRef} className="timepicker-slots" {...rest}>
+    <div ref={containerRef} className={`timepicker-slots${rightAlign ? ' right-align' : ''}`}>
       {timeSlots.map((time, i) => (
-        <SlotButton key={i} size="sm" isSelected={timeIsEqual(selectedTime, time)} onClick={() => onChange(time)}>
+        <button
+          key={i}
+          className={`timepicker-slots__btn${timeIsEqual(time, selectedTime) ? ' slected' : ''}`}
+          onClick={() => onChange(time)}
+        >
           {time}
-        </SlotButton>
+        </button>
       ))}
-    </TimeContainer>
+    </div>
   );
 };

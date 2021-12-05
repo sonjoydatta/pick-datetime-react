@@ -19,18 +19,8 @@ export type FormMessageProps = {
   variant?: 'danger' | 'success';
 };
 
-export type FormCheckProps = {
-  type?: 'checkbox' | 'radio';
-} & Omit<FormInputProps, 'type'>;
-
 export type FormItemProps = {
   label?: ReactNode;
   message?: Rename<FormMessageProps, 'children', 'value'>;
 } & Pick<FormLabelProps, 'srOnly'> &
   FormInputProps;
-
-export type FormCheckItemProps = {
-  label?: ReactNode;
-  message?: Rename<FormMessageProps, 'children', 'value'>;
-} & Pick<FormLabelProps, 'srOnly'> &
-  FormCheckProps;

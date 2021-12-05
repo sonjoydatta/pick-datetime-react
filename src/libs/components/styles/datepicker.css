@@ -1,0 +1,139 @@
+.datepicker {
+  position: relative;
+}
+.datepicker .calendar {
+  position: absolute;
+  top: calc(100% + 10px);
+  display: flex;
+  flex-direction: column;
+  max-width: 370px;
+  min-width: 280px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.datepicker .calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.datepicker .calendar-header__title {
+  font-weight: 600;
+  margin: 0;
+}
+.datepicker .calendar-header__navigate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.datepicker .calendar-header__navigate-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  line-height: 32px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(24, 144, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.datepicker .calendar-header__navigate-btn svg {
+  fill: #1890ff;
+}
+.datepicker .calendar-header__navigate-btn + .calendar-header__navigate-btn {
+  margin-left: 8px;
+}
+.datepicker .calendar-header__navigate-btn:hover,
+.datepicker .calendar-header__navigate-btn:focus {
+  background-color: rgba(24, 144, 255, 0.2);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.datepicker .calendar-header__navigate-btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.datepicker .calendar-header__navigate-btn:disabled:hover {
+  background-color: rgba(24, 144, 255, 0.1);
+  box-shadow: none;
+}
+.datepicker .calendar-body {
+  width: 100%;
+  display: block;
+}
+.datepicker .calendar-body__table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 14px;
+  color: #182c2b;
+}
+.datepicker .calendar-body__table thead th {
+  color: #1890ff;
+}
+.datepicker .calendar-body__table thead th.weekend {
+  color: #dc3545;
+}
+.datepicker .calendar-body__table th,
+.datepicker .calendar-body__table td {
+  width: 14.28%;
+  text-align: center;
+  font-weight: 400;
+  padding: 0;
+}
+.datepicker .calendar-body__table td {
+  height: 36px;
+}
+.datepicker .calendar-body__table td > button {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  margin: 2px;
+  padding: 0;
+  color: #182c2b;
+  font-weight: 400;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.datepicker .calendar-body__table td > button.today {
+  border-color: #1890ff;
+}
+.datepicker .calendar-body__table td > button.today.weekend {
+  border-color: #dc3545;
+}
+.datepicker .calendar-body__table td > button.weekend {
+  color: #dc3545;
+}
+.datepicker .calendar-body__table td > button.selected,
+.datepicker .calendar-body__table td > button:hover {
+  color: #ffffff;
+  border-color: rgba(24, 144, 255, 0.85);
+  background-color: rgba(24, 144, 255, 0.85);
+}
+.datepicker .calendar-body__table td > button.selected.weekend,
+.datepicker .calendar-body__table td > button:hover.weekend {
+  border-color: rgba(220, 53, 69, 0.85);
+  background-color: rgba(220, 53, 69, 0.85);
+}
+.datepicker .calendar-body__table td > button:disabled,
+.datepicker .calendar-body__table td > button:disabled:hover {
+  cursor: default;
+  color: rgba(24, 44, 43, 0.5);
+  background-color: #ffffff;
+  border-color: transparent;
+}
