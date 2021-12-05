@@ -1,5 +1,5 @@
 import { useOnClickOutside } from '../../hooks';
-import { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { Form } from '../Form';
 import { FormItemProps } from '../Form/types';
 import { Calendar } from './Calendar';

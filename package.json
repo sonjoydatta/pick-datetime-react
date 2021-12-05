@@ -1,41 +1,46 @@
 {
-  "name": "datetime-picker-react",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "styled-components": "^5.3.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "@types/styled-components": "^5.1.16",
-    "typescript": "^4.5.2"
-  }
+	"name": "datetime-picker-react",
+	"version": "1.0.0",
+	"description": "Datetime picker for React",
+	"author": "Sonjoy Datta <sonjoy.dat@gmail.com>",
+	"license": "MIT",
+	"repository": "sonjoydatta/datetime-picker-react",
+	"main": "dist/index.js",
+	"types": "./dist/index.d.ts",
+	"engines": {
+		"node": ">=14",
+		"npm": ">=8"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"ci": "yarn --frozen-lockfile"
+	},
+	"devDependencies": {
+		"@types/react": "^17.0.34",
+		"@types/styled-components": "^5.1.16",
+		"@typescript-eslint/eslint-plugin": "^5.3.1",
+		"@typescript-eslint/parser": "^5.3.1",
+		"babel-core": "^6.26.3",
+		"babel-runtime": "^6.26.0",
+		"eslint": "^8.2.0",
+		"eslint-plugin-react": "^7.27.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"rollup": "^2.60.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"rollup-plugin-typescript2": "^0.30.0",
+		"styled-components": "^5.3.3",
+		"typescript": "^4.4.4"
+	},
+	"files": [
+		"dist"
+	],
+	"keywords": [
+		"react",
+		"typescript",
+		"npm",
+		"access-control",
+		"user-permission",
+		"authorization"
+	]
 }

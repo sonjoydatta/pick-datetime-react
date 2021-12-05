@@ -1,5 +1,5 @@
 import { useOnClickOutside } from '../../hooks';
-import { FC, useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { Form } from '../Form';
 import { FormItemProps } from '../Form/types';
 import { convertTo12Hours, convertTo24Hours, findNearestSlot } from '../../helpers/time';

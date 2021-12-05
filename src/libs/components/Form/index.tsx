@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { FormCheck, FormGroup, FormInput, FormLabel, FormMessage } from './styles';
 import { FormCheckItemProps, FormItemProps } from './types';
 

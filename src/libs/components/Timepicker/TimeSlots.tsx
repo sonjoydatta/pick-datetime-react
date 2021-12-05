@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { getSlots, sortSlots, timeIsEqual } from '../../helpers/time';
 import { SlotButton, TimeContainer } from './styles';
 

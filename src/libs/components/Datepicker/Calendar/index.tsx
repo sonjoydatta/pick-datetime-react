@@ -1,3 +1,4 @@
+import React from 'react';
 import { CalendarContainer } from '../styles';
 import { Body } from './Body';
 import { Header } from './Header';

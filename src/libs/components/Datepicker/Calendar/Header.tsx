@@ -1,3 +1,4 @@
+import React from 'react';
 import { IconArrowLeft, IconArrowRight, SolidSVG } from '../../SolidSVG';
 import { getMonth, getMonthName, getYear } from '../../../helpers/date';
 import { CalendarHeader, HeaderTitle, NavidateBtn } from '../styles';

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { createContext, Dispatch, FC, SetStateAction, useContext, useState } from 'react';
+import React, { createContext, Dispatch, FC, SetStateAction, useContext, useState } from 'react';
 import { checkMonthHasDay, dateIsLessThan } from '../../helpers/date';
 
 export type WeekDays = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';

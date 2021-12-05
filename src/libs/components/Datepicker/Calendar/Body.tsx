@@ -1,3 +1,4 @@
+import React from 'react';
 import { dateIsEqual, getDay, getMonth, getWeekDayName, getYear, weeksOfMonth } from '../../../helpers/date';
 import { CalendarBody, DayButton, Table } from '../styles';
 import { useDateContext, WeekDays } from '../useDateContext';

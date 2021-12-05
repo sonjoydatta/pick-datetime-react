@@ -1,4 +1,4 @@
-import { FC, SVGAttributes } from 'react';
+import React, { FC, SVGAttributes } from 'react';
 import { theme } from '../theme';
 
 export type SolidSVGProps = {
